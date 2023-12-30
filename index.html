@@ -1,0 +1,107 @@
+# Weather
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR</title>
+</head>
+<style>
+    *{
+        margin:0px;
+        padding:0px;
+        box-sizing: border-box;
+    }
+    body{
+        /*background-image: linear-gradient(to right, #434343 0%, black 100%);*/
+        /*background-image: linear-gradient(to right, #141e30, #243b55);*/
+        background: #010e22;
+
+    }
+    .container{
+        width:90%;
+        max-width:400px;
+        padding:25px 35px;
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        background-image: linear-gradient(to right, #b6fbff, #83a4d4);
+        border-radius: 12px;
+    }
+    .container p{
+        font-weight: 600;
+        font-size: 15px;
+        margin-bottom: 8px;
+    }
+    .container input{
+        width:100%;
+        height:50px;
+        border:1px;
+        outline:0;
+        padding:10px;
+        margin:10px 0 20px;
+        border-radius:5px;
+    }
+    .container button{
+                display: inline-block;
+                outline: 0;
+                border: 0;
+                cursor: pointer;
+                will-change: box-shadow,transform;
+                background: radial-gradient( 100% 100% at 100% 0%, #89E5FF 0%, #5468FF 100% );
+                box-shadow: 0px 2px 4px rgb(45 35 66 / 40%), 0px 7px 13px -3px rgb(45 35 66 / 30%), inset 0px -3px 0px rgb(58 65 111 / 50%);
+                padding: 0 32px;
+                border-radius: 6px;
+                color: #fff;
+                height: 48px;
+                font-size: 18px;
+                text-shadow: 0 1px 0 rgb(0 0 0 / 40%);
+                transition: box-shadow 0.15s ease,transform 0.15s ease;
+    }
+    .container button:hover {
+                    box-shadow: 0px 4px 8px rgb(45 35 66 / 40%), 0px 7px 13px -3px rgb(45 35 66 / 30%), inset 0px -3px 0px #3c4fe0;
+                    transform: translateY(-2px);
+                }
+    .container button:active{
+                    box-shadow: inset 0px 3px 7px #3c4fe0;
+                    transform: translateY(2px);
+                }     
+    #imgBox{
+        width:200px;
+        border-radius: 5px;
+        max-height: 0;
+        overflow: hidden;
+    }         
+    #imgBox img{
+        width:100%;
+        padding: 10px;
+    }      
+</style>
+<body>
+    <div class="container">
+        <p>ENTER YOUR TEXT OR URL </p>
+        <input type="text" placeholder="text or URL" id="qrText">
+        <button id="uploadBtn">Generate QR</button>
+
+        <div class="imgBox">
+            <img id="qrImage">
+        </div>
+    </div>
+<script>
+   /*  let imgBox=document.getElementById("imgBox");
+     let qrImage=document.getElementById("qrImage");
+     let qrText=document.getElementById("qrText");
+
+function generateQR(){
+   qrImage.src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="+ qrText.value;*/
+
+let button=documennt.getElementById("uploadBtn");
+uploadBtn.onclick=()=>{
+    let qrText=document.getElementById("qrText");
+    let img=document.getElementById("qrImage");
+    img.scr="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="+qrText.value;
+}
+</script>    
+</body>
+</html>
