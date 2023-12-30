@@ -1,107 +1,145 @@
-# Weather
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR</title>
+    <title>Weather</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        body{
+            /*background-color: rgb(16, 18, 18);*/
+            /*background-image: linear-gradient(to right, #2c3e50, #4ca1af);*/
+            background-image: linear-gradient(to right, #434343 0%, black 100%);
+        }
+        .card{
+            width:90%;
+            max-width: 470px;
+            /*background-image:linear-gradient(#4de2bb,#7e6deb);*/
+            background-color: #21D4FD;
+            background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
+            color:#fff;
+            margin: 100px auto 0;
+            padding:40px 35px;
+            text-align:center;
+            border-radius: 20px;
+        }
+        .search{
+            width:100%;
+            justify-content: space-between;
+            align-items: center;
+            display: flex;
+        }
+        .search input{
+            border:0;
+            outline:0;
+            background:#ebfffc;
+            color:#555;
+            padding:10px 25px;
+            flex:1;
+            height:60px;
+            border-radius:30px;
+            margin-right:16px;
+            font-size:18px;
+        }
+        .search button{
+            border:0;
+            outline:0;
+            background:#ebfffc;
+            border-radius: 50%;
+            width:60px;
+            height:60px;
+            cursor:pointer;
+        }
+        .search button img{
+            width:16px;
+        }
+        .weather-icon{
+            height:170px;
+            margin-top:30px;
+        }
+        .weather h1{
+            font-weight: 500;
+            font-size: 80px;
+        }
+        .weather h2{
+            font-weight: 400;
+            font-size: 45px;
+            margin-top:-10px;
+        }
+        .details{
+            align-items: center;
+            justify-content: space-between;
+            display: flex;
+            padding:0 20px;
+            margin-top: 50px;
+        }
+        .col{
+            display: flex;
+            text-align: left;
+            align-items: center;
+        }
+        .col img{
+            width:40px;
+            margin-right: 10px;
+        }
+        .humidity,.wind{
+            font-size:28px;
+            margin-top:-6px;
+        }
+    </style>
 </head>
-<style>
-    *{
-        margin:0px;
-        padding:0px;
-        box-sizing: border-box;
-    }
-    body{
-        /*background-image: linear-gradient(to right, #434343 0%, black 100%);*/
-        /*background-image: linear-gradient(to right, #141e30, #243b55);*/
-        background: #010e22;
-
-    }
-    .container{
-        width:90%;
-        max-width:400px;
-        padding:25px 35px;
-        position: absolute;
-        top:50%;
-        left:50%;
-        transform:translate(-50%,-50%);
-        background-image: linear-gradient(to right, #b6fbff, #83a4d4);
-        border-radius: 12px;
-    }
-    .container p{
-        font-weight: 600;
-        font-size: 15px;
-        margin-bottom: 8px;
-    }
-    .container input{
-        width:100%;
-        height:50px;
-        border:1px;
-        outline:0;
-        padding:10px;
-        margin:10px 0 20px;
-        border-radius:5px;
-    }
-    .container button{
-                display: inline-block;
-                outline: 0;
-                border: 0;
-                cursor: pointer;
-                will-change: box-shadow,transform;
-                background: radial-gradient( 100% 100% at 100% 0%, #89E5FF 0%, #5468FF 100% );
-                box-shadow: 0px 2px 4px rgb(45 35 66 / 40%), 0px 7px 13px -3px rgb(45 35 66 / 30%), inset 0px -3px 0px rgb(58 65 111 / 50%);
-                padding: 0 32px;
-                border-radius: 6px;
-                color: #fff;
-                height: 48px;
-                font-size: 18px;
-                text-shadow: 0 1px 0 rgb(0 0 0 / 40%);
-                transition: box-shadow 0.15s ease,transform 0.15s ease;
-    }
-    .container button:hover {
-                    box-shadow: 0px 4px 8px rgb(45 35 66 / 40%), 0px 7px 13px -3px rgb(45 35 66 / 30%), inset 0px -3px 0px #3c4fe0;
-                    transform: translateY(-2px);
-                }
-    .container button:active{
-                    box-shadow: inset 0px 3px 7px #3c4fe0;
-                    transform: translateY(2px);
-                }     
-    #imgBox{
-        width:200px;
-        border-radius: 5px;
-        max-height: 0;
-        overflow: hidden;
-    }         
-    #imgBox img{
-        width:100%;
-        padding: 10px;
-    }      
-</style>
 <body>
-    <div class="container">
-        <p>ENTER YOUR TEXT OR URL </p>
-        <input type="text" placeholder="text or URL" id="qrText">
-        <button id="uploadBtn">Generate QR</button>
-
-        <div class="imgBox">
-            <img id="qrImage">
+    <div class="card">
+        <div class="search">
+            <input placeholder="Search City" class="search-input" spellcheck="false">
+            <button><img src="search.png"></button>
+        </div>
+        <div class="weather">
+            <img src="rain.png" class="weather-icon">
+            <h2 class="city">New York</h2>
+            <h1 class="temp">22°C</h1>
+            
+            <div class="details">
+                <div class="col">
+                    <img src="humidity.png">
+                    <div>
+                        <p class="humidity">50%</p>
+                        <p>humidity</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <img src="wind.png">
+                    <div>
+                        <p class="wind">15km/hr</p>
+                        <p>Wind</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-<script>
-   /*  let imgBox=document.getElementById("imgBox");
-     let qrImage=document.getElementById("qrImage");
-     let qrText=document.getElementById("qrText");
+    <script>
+        const apiKey="7b500ad6d4f6b5c2bcd07f280650d686";
+        const apiUrl="https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+        const searchBox=document.querySelector(".search input");
+        const searchBtn=document.querySelector(".search button");
 
-function generateQR(){
-   qrImage.src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="+ qrText.value;*/
+        async function checkWeather(city){
+            const response=await fetch(apiUrl+city+`&appId=${apiKey}`);
+            var data=await response.json();
 
-let button=documennt.getElementById("uploadBtn");
-uploadBtn.onclick=()=>{
-    let qrText=document.getElementById("qrText");
-    let img=document.getElementById("qrImage");
-    img.scr="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="+qrText.value;
-}
-</script>    
+            console.log(data);
+            document.querySelector(".city").innerHTML=data.name;
+            document.querySelector(".temp").innerHTML=Math.round(data.main.temp) + "°C";
+            document.querySelector(".humidity").innerHTML=data.main.humidity +"%";
+            document.querySelector(".wind").innerHTML=data.wind.speed +" km/hr";
+        }
+        searchBtn.addEventListener("click",()=>{
+            checkWeather(searchBox.value);
+        })
+    
+    </script>
 </body>
 </html>
